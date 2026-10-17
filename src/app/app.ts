@@ -1,6 +1,5 @@
-import { Component, signal } from '@angular/core';
+import { Component, signal,computed } from '@angular/core';
 import { RouterOutlet } from '@angular/router';
-
 
 @Component({
   imports: [RouterOutlet],
@@ -13,8 +12,7 @@ export class App {
 
   protected readonly isTermsApproved = signal(false);
 
-  protected readonly isFormValid =signal(() => this.isTermsApproved());
-
+protected readonly isFormValid = computed(() => this.isTermsApproved());
   protected onIdNumberChange(event: Event): void {
     const input = event.target as HTMLInputElement;
     this.idNumber.set(input.value);
