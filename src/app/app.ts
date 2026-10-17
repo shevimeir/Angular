@@ -1,6 +1,7 @@
 import { Component, signal } from '@angular/core';
 import { RouterOutlet } from '@angular/router';
 
+
 @Component({
   imports: [RouterOutlet],
   selector: 'app-root',
@@ -8,5 +9,26 @@ import { RouterOutlet } from '@angular/router';
   templateUrl: './app.html',
 })
 export class App {
-  protected readonly title = signal('my-angular-app');
+ protected readonly idNumber = signal('');
+
+  protected readonly isTermsApproved = signal(false);
+
+  protected readonly isFormValid =signal(() => this.isTermsApproved());
+
+  protected onIdNumberChange(event: Event): void {
+    const input = event.target as HTMLInputElement;
+    this.idNumber.set(input.value);
+  }
+
+  protected onApprovalChange(event: Event): void {
+    const checkbox = event.target as HTMLInputElement;
+    this.isTermsApproved.set(checkbox.checked);
+  }
+
+  protected onSubmit(): void {
+    if (!this.isFormValid()) {
+      return;
+    }
+  }
 }
+

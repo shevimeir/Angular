@@ -1,0 +1,6 @@
+:host {
+  display: block;
+  min-height: 100dvh;
+  background: #f4f6f9;
+  box-sizing: border-box;
+}
