@@ -29,4 +29,3 @@ protected readonly isFormValid = computed(() => this.isTermsApproved());
     }
   }
 }
-
