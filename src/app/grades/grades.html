@@ -3,15 +3,15 @@
 <ul>
   <li *ngFor="let grade of grades" [class.failed-line]="grade.grade < 60">
     <strong>{{ grade.subject }}:</strong> {{ grade.grade }} - 
-    <span *ngIf="grade.grade >= 60">עבר</span>
-    <span *ngIf="grade.grade < 60">לא עבר</span>
+    <span [ngStyle]="{ 'color': grade.grade >= 60 ? 'green' : 'red' }" *ngIf="grade.grade >= 60">עבר</span>
+    <span [ngStyle]="{ 'color': grade.grade < 60 ? 'red' : 'green' }" *ngIf="grade.grade < 60">לא עבר</span>
   </li>
 
-  <hr>
+
 
   <li [class.failed-line]="averageGrade < 60">
     <strong>Average Grade:</strong> {{ averageGrade }} - 
-    <span *ngIf="averageGrade >= 60">עבר</span>
-    <span *ngIf="averageGrade < 60">לא עבר</span>
+    <span [ngStyle]="{ 'color': averageGrade >= 60 ? 'green' : 'red' }" *ngIf="averageGrade >= 60">עבר</span>
+    <span [ngStyle]="{ 'color': averageGrade < 60 ? 'red' : 'green' }" *ngIf="averageGrade < 60">לא עבר</span>
   </li>
 </ul>

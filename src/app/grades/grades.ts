@@ -5,7 +5,7 @@ export interface SubjectGrade {
   grade: number;
 }
 @Component({
-  imports: [CommonModule],
+  imports: [CommonModule ],
   selector: 'app-grades',
   styleUrl: './grades.css',
   templateUrl: './grades.html',
